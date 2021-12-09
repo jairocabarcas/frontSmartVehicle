@@ -1,13 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>FrontSV</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <base href="/">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <app-root></app-root>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+              var elems = document.querySelectorAll('.sidenav');
+              var instances = M.Sidenav.init(elems, options);
+          });
+    </script>
+    </body>
+  </html>
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, 
-    private seguridadService:SeguridadService
+    private seguridadService:SeguridadService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,11 +29,12 @@ export class LoginComponent implements OnInit {
   identifiacrUsuario(){
     let usuario = this.fgValidador.controls['usuario'].value;
     let password = this.fgValidador.controls['password'].value;
-    this.seguridadService.identificar(usuario,password)
-    .subscribe((datos:any)=>{
-      alert("Usuario Existe")
+    this.seguridadService.identificar(usuario,password).subscribe
+    ((datos:any)=>{
+      this.seguridadService.almacenarService(datos);
+      this.router.navigate(['/inicio'])
     },(error:any)=>{
-      alert("Usuario no valido")
+      alert("Usuario no valido");
     });
 
   }

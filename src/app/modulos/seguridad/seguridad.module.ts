@@ -5,6 +5,7 @@ import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { LoginComponent } from './login/login.component';
 import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { compileFunction } from 'vm';
 
 
@@ -16,7 +17,9 @@ import { Routes } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    SeguridadRoutingModule
+    SeguridadRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SeguridadModule { }

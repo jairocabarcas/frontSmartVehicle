@@ -11,5 +11,4 @@ export class BarraNavegacionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

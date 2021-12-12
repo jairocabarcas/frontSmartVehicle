@@ -24,18 +24,17 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
+  
   identifiacrUsuario(){
     let usuario = this.fgValidador.controls['usuario'].value;
     let password = this.fgValidador.controls['password'].value;
-    this.seguridadService.identificar(usuario,password).subscribe((datos: ModeloIdentificar)=>{
+    this.seguridadService.identificar(usuario,password).subscribe(((datos:ModeloIdentificar): void=>{
       this.seguridadService.almacenarService(datos);
       this.router.navigate(['/inicio'])
-    },(error:any)=>{
+    }),((error:any)=>{
       alert("Usuario no valido");
-    });
+    }));
 
   }
 

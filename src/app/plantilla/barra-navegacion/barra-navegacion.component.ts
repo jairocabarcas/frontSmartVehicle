@@ -16,12 +16,13 @@ export class BarraNavegacionComponent implements OnInit {
   constructor(private seguridaService: SeguridadService) {}
 
   ngOnInit(): void {
-    this.subs=this.seguridaService.usuarioEnSesion()
-    .subscribe((datos:ModeloIdentificar)=>{
-      this.inicioSesion=datos.estaIdentificado;
-    })
+    this.sesioniniciada()
   }
   sesioniniciada(){
-    
+    this.subs=this.seguridaService.usuarioEnSesion().subscribe((datos:any)=>{
+      this.inicioSesion=datos.estaIdentificado;
+    },((error:any)=>{
+      alert("no hace cambio de etiquetas");
+    }))
   }
 }

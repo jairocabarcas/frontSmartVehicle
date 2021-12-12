@@ -5,7 +5,7 @@
     <ul class="right hide-on-med-and-down">
       <li><a routerLink="">Inicio</a></li>
       <li><a routerLink="badges.html">Components</a></li>
-      <li><a routerLink="clientes/registrar">Registrarse</a></li>
+      <li *ngIf="!inicioSesion"><a routerLink="clientes/registrar">Registrarse</a></li>
       <li *ngIf="!inicioSesion"><a routerLink="seguridad/login">Iniciar Sesion</a></li>
       <li *ngIf="inicioSesion"><a routerLink="seguridad/cerrar-sesion">Cerra Sesión</a></li>
     </ul>
@@ -15,7 +15,7 @@
 <ul class="sidenav" id="mobile-demo">
   <li><a routerLink="">Inicio</a></li>
     <li><a routerLink="badges.html">Components</a></li>
-    <li><a routerLink="clientes/registrar">Registrarse</a></li>
+    <li *ngIf="!inicioSesion"><a routerLink="clientes/registrar">Registrarse</a></li>
     <li  *ngIf="!inicioSesion"><a routerLink="seguridad/login">Iniciar Sesion</a></li>
     <li  *ngIf="inicioSesion"><a routerLink="seguridad/cerrar-sesion">Cerra Sesión</a></li>
 </ul>

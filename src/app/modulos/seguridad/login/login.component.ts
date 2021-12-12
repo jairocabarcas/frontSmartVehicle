@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModeloIdentificar } from 'src/app/modelos/identificar.modelo';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
@@ -29,8 +30,7 @@ export class LoginComponent implements OnInit {
   identifiacrUsuario(){
     let usuario = this.fgValidador.controls['usuario'].value;
     let password = this.fgValidador.controls['password'].value;
-    this.seguridadService.identificar(usuario,password).subscribe
-    ((datos:any)=>{
+    this.seguridadService.identificar(usuario,password).subscribe((datos: ModeloIdentificar)=>{
       this.seguridadService.almacenarService(datos);
       this.router.navigate(['/inicio'])
     },(error:any)=>{

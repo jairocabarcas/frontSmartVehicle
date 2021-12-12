@@ -29,6 +29,7 @@ export class SeguridadService {
     datos.estaIdentificado=true;
     let stringDatos = JSON.stringify(datos);
     localStorage.setItem("datosSesion",stringDatos);
+    localStorage.setItem("logueado","true");
     this.refrescarDatosSesion(datos)
   }
 
@@ -45,6 +46,7 @@ export class SeguridadService {
   eliminarInfoSesion(){
     localStorage.removeItem("datosSesion")
     this.refrescarDatosSesion(new ModeloIdentificar)
+    localStorage.setItem("logueado","false")
   }
   
   isLogin(){

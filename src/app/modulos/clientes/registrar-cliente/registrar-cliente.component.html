@@ -3,76 +3,74 @@
         <h2>REGISTRO DE CLIENTE</h2>
     </div>
     <div class="row">
-        <form class="col s9">
+        <form  [formGroup]="fgValidador" (ngSubmit)="registrarCliente()" class="col s9" #formRegister="ngForm">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="nombre" type="text" class="validate" required="required">
+                    <input formControlName="nombre" id="nombre" type="text" class="validate" [(ngModel)]="datos.nombre" required="required">
                     <label for="nombre">Nombre</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="apellido" type="text" class="validate" required="required">
+                    <input formControlName="apellido" id="apellido" type="text" class="validate" [(ngModel)]="datos.apellido" required="required">
                     <label for="apellido">Apellido</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s3">
-                    <select class="browser-default" required="required" id="tipoDocumento">
-                        <option value="" disabled selected>Tiipo de Documento</option>
-                        <option value="CC">Cedula de Ciudadania</option>
-                        <option value="CE">Cedula de Extranjería</option>
-                        <option value="Pasaporte">Pasaporte</option>
+                    <select formControlName="tipoDocumento" class="browser-default" id="tipoDocumento" required="required" [(ngModel)]="datos.tipoDocumento">
+                        <option [value]="tipo.valor" *ngFor="let tipo of tipos">{{tipo.dato}}</option>
                     </select>
                 </div>
                 <div class="input-field col s3">
-                    <input id="cedula" type="text" class="validate" required="required">
+                    <input formControlName="documento" id="documento" type="text" class="validate" 
+                    [(ngModel)]="datos.documento" placeholder="# Documento" required="required">
                 </div>
                 <div class="input-field col s3">
-                    <input id="cumple" type="date" class="validate" required="required">
+                    <input formControlName="fechaNacimiento" id="cumple" type="date" class="validate" [(ngModel)]="datos.fechaNacimiento" required="required">
                 </div>
                 <div class="input-field col s3">
-                    <select class="browser-default" required="required" id="genero">
-                        <option value="" disabled selected>Género</option>
-                        <option value="f">Femenino</option>
-                        <option value="m">Masculino</option>
-                        <option value="otro">Otro</option>
+                    <select formControlName="genero" class="browser-default" required="required" [(ngModel)]="datos.genero" >
+                        <option [value]="genero.valor" *ngFor="let genero of generos">{{genero.dato}}</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="email" type="email" class="validate" required="required">
+                    <input formControlName="correo" id="correo" type="email" class="validate" required="required" [(ngModel)]="datos.correo" autocomplete="username">
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="password" type="password" class="validate" required="required">
+                    <input formControlName="clave" id="clave" type="password" class="validate" required="required" [(ngModel)]="datos.clave"  autocomplete="current-password">
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s3">
-                    <input id="telefono" type="tel" class="validate" required="required">
+                    <input formControlName="celular" id="celular" type="tel" class="validate" required="required" [(ngModel)]="datos.celular">
                     <label for="telefono">Teléfono</label>
                 </div>
                 <div class="input-field col s9">
-                    <input id="direccion" type="text" class="validate" required="required">
+                    <input formControlName="direccion" id="direccion" type="text" class="validate" required="required" [(ngModel)]="datos.direccion">
                     <label for="direccion">Direccion</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="departamento" type="text" class="validate" required="required">
+                    <input formControlName="departamento" id="departamento" type="text" class="validate" required="required" [(ngModel)]="datos.departamento">
                     <label for="departamento">Departamento</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="ciudad" type="text" class="validate" required="required">
+                    <input formControlName="ciudad" id="ciudad" type="text" class="validate" required="required" [(ngModel)]="datos.ciudad">
                     <label for="ciudad">Ciudad</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <button class="btn waves-effect waves-light" type="submit">Registrar <i class="material-icons right">send</i></button>
+                    <button [disabled]="!formRegister.valid" class="btn waves-effect waves-light" type="submit">Registrar <i class="material-icons right">send</i></button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<pre>
+    {{datos | json}}
+</pre>

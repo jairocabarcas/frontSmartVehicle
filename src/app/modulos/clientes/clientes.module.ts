@@ -6,6 +6,8 @@ import { RegistrarClienteComponent } from './registrar-cliente/registrar-cliente
 import { ConsultarClienteComponent } from './consultar-cliente/consultar-cliente.component';
 import { ActualizarClienteComponent } from './actualizar-cliente/actualizar-cliente.component';
 import { EliminarClienteComponent } from './eliminar-cliente/eliminar-cliente.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +19,10 @@ import { EliminarClienteComponent } from './eliminar-cliente/eliminar-cliente.co
   ],
   imports: [
     CommonModule,
-    ClientesRoutingModule
+    ClientesRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ClientesModule { }

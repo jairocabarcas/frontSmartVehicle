@@ -17,22 +17,22 @@ export class BarraNavegacionComponent implements OnInit {
   constructor(private seguridaService: SeguridadService) {}
 
   ngOnInit(): void {
-    setInterval(()=>{
+    /*setInterval(()=>{
       this.sesioniniciada();
-    },1000)
+    },1000)*/
     
   }
   sesioniniciada(){
-    /*this.subs=this.seguridaService.usuarioEnSesion().subscribe((datos:any)=>{
+    this.subs=this.seguridaService.usuarioEnSesion().subscribe((datos:any)=>{
       this.inicioSesion=datos.estaIdentificado;
     },((error:any)=>{
       alert("no hace cambio de etiquetas");
-    }))*/
-    let estado = localStorage.getItem("logueado");
+    }))
+    /*let estado = localStorage.getItem("logueado");
     if(estado=="true"){
       this.inicioSesion = true;
     }else{
       this.inicioSesion = false;
-    }
+    }*/
   }
 }

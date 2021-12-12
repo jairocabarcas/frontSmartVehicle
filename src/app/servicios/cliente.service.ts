@@ -12,7 +12,7 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
-  registrarCliente(datos:any): Observable<any>{
+  registrarCliente(datos:ModeloCliente): Observable<ModeloCliente>{
     
     return this.http.post(`${this.url}/clientes`,{
       nombre: datos.nombre,

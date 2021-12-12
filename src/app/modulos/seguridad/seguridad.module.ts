@@ -7,8 +7,7 @@ import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
-import { Observable } from 'rxjs';
-//import { compileFunction } from 'vm';
+
 
 
 
@@ -23,7 +22,7 @@ import { Observable } from 'rxjs';
     SeguridadRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Observable
+    
   ]
 })
 export class SeguridadModule { }
